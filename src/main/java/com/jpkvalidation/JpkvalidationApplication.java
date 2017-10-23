@@ -9,16 +9,8 @@ import javax.annotation.Resource;
 @SpringBootApplication
 public class JpkvalidationApplication {
 
-	@Resource
-	StorageService storageService;
-
 	public static void main(String[] args) {
 		SpringApplication.run(JpkvalidationApplication.class, args);
 	}
 
-
-	public void run(String... args) throws Exception {
-		storageService.deleteAll();
-		storageService.init();
-	}
 }
