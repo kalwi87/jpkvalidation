@@ -22,7 +22,7 @@ public class MainController {
 
     private static final Logger LOG = LoggerFactory.getLogger(MainController.class);
 
-    @CrossOrigin(origins = "http://sprawdzjpk.com.pl/")
+    @CrossOrigin
     @PostMapping
     @RequestMapping("/upload")
     public ResponseEntity<?> handleFileUpload(@RequestParam("file") MultipartFile file) {
