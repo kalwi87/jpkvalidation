@@ -1,8 +1,8 @@
 package com.jpkvalidation.service;
 
 
-import org.springframework.core.io.ClassPathResource;
 import org.springframework.stereotype.Component;
+import org.springframework.util.ResourceUtils;
 
 import javax.xml.XMLConstants;
 import javax.xml.transform.stream.StreamSource;
@@ -18,10 +18,9 @@ import java.io.InputStream;
 public class ValidationService {
 
     public String validateAgainstXSD(InputStream xml) throws Exception {
-        ClassLoader classLoader = getClass().getClassLoader();
         InputStream xsd = null;
         try {
-            xsd = new FileInputStream(new File(classLoader.getResource("jpk-vat.xsd").getFile()));
+            xsd = new FileInputStream(new File(ResourceUtils.getURL("jpk-vat.xsd").getFile()));
         } catch (FileNotFoundException e) {
             e.printStackTrace();
         }
